@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://www.sybase.com/esp/project_config/2010/08/">
+  <Runtime>
+    <Clusters/>
+    <Bindings/>
+    <AdaptersPropertySet>
+      <PropertySet name="JMS FIX Output">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">fixout.queue</Property>
+        <Property name="fixVersion">4.2</Property>
+        <Property name="fixMessageType"></Property>
+      </PropertySet>
+      <PropertySet name="SAP ASE Output">
+        <Property name="service"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop AVRO Output">
+        <Property name="file"></Property>
+      </PropertySet>
+      <PropertySet name="JMS Event XML Output">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">xmlout.queue</Property>
+      </PropertySet>
+      <PropertySet name="AMQP String Input"/>
+      <PropertySet name="JMS Object Array Output (deprecated)">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">objarrayout.queue</Property>
+      </PropertySet>
+      <PropertySet name="JDBC Output">
+        <Property name="dbType"></Property>
+      </PropertySet>
+      <PropertySet name="Socket CSV Input">
+        <Property name="host"></Property>
+        <Property name="port"></Property>
+      </PropertySet>
+      <PropertySet name="JMS Custom Format Output (deprecated)">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">customout.queue</Property>
+        <Property name="converterClassName">com.sybase.esp.connectors.DefaultESPToExternalConverter</Property>
+      </PropertySet>
+      <PropertySet name="Kafka Event XML Output">
+        <Property name="kafkaTopicPartition"></Property>
+      </PropertySet>
+      <PropertySet name="Web Services (SOAP) Output (external)">
+        <Property name="configFilePath"></Property>
+        <Property name="jdkHome"></Property>
+      </PropertySet>
+      <PropertySet name="JMS CSV Input">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">csvin.queue</Property>
+      </PropertySet>
+      <PropertySet name="JMS Event XML Input">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">xmlin.queue</Property>
+      </PropertySet>
+      <PropertySet name="JMS Object Array Input (deprecated)">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">objarrayin.queue</Property>
+      </PropertySet>
+      <PropertySet name="HTTP Client JSON Output Adapter">
+        <Property name="jsonColsMappingList"></Property>
+      </PropertySet>
+      <PropertySet name="Kafka String Input"/>
+      <PropertySet name="SMTP Output">
+        <Property name="smtpHost"></Property>
+        <Property name="addressColumn">toAddress</Property>
+        <Property name="subjectColumn">subject</Property>
+        <Property name="importanceColumn">importance</Property>
+        <Property name="fromAddress"></Property>
+      </PropertySet>
+      <PropertySet name="JMS CSV Input (deprecated)">
+        <Property name="delimiter">,</Property>
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">csvin.queue</Property>
+      </PropertySet>
+      <PropertySet name="HANA Output">
+        <Property name="service"></Property>
+      </PropertySet>
+      <PropertySet name="Socket Event XML Input">
+        <Property name="host"></Property>
+        <Property name="port"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop JSON Output">
+        <Property name="jsonColsMappingList"></Property>
+        <Property name="file"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop XML Input">
+        <Property name="file"></Property>
+        <Property name="xmlElemMappingRowPattern"></Property>
+        <Property name="espColumnPattern"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop Event XML Output">
+        <Property name="file"></Property>
+      </PropertySet>
+      <PropertySet name="FTP CSV Output">
+        <Property name="host"></Property>
+        <Property name="port">21</Property>
+        <Property name="loginType">normal</Property>
+        <Property name="ftpFileName"></Property>
+        <Property name="ftpFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="File FIX Output">
+        <Property name="fixVersion">4.2</Property>
+        <Property name="fixMessageType"></Property>
+        <Property name="fileName"></Property>
+      </PropertySet>
+      <PropertySet name="Socket Event XML Output">
+        <Property name="host"></Property>
+        <Property name="port"></Property>
+      </PropertySet>
+      <PropertySet name="Sample External Adapter">
+        <Property name="x_initialOnly">false</Property>
+      </PropertySet>
+      <PropertySet name="Socket JSON Input">
+        <Property name="jsonColsMappingList"></Property>
+        <Property name="host"></Property>
+        <Property name="port"></Property>
+      </PropertySet>
+      <PropertySet name="Kafka Event XML Input"/>
+      <PropertySet name="Replication Server Input (external)">
+        <Property name="repSubscriptionServer">RSadapter</Property>
+        <Property name="repConnUser">rsuser</Property>
+        <Property name="repConnPasswd"></Property>
+        <Property name="projectUri"></Property>
+        <Property name="authType">user_password</Property>
+      </PropertySet>
+      <PropertySet name="AMQP JSON Input">
+        <Property name="jsonColsMappingList"></Property>
+      </PropertySet>
+      <PropertySet name="Generic DB Input">
+        <Property name="service"></Property>
+      </PropertySet>
+      <PropertySet name="Web Services (SOAP) Input (external)">
+        <Property name="configFilePath"></Property>
+        <Property name="jdkHome"></Property>
+      </PropertySet>
+      <PropertySet name="JMS Custom Format Input (deprecated)">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">customin.queue</Property>
+        <Property name="converterClassName">com.sybase.esp.connectors.DefaultExternalToESPConverter</Property>
+      </PropertySet>
+      <PropertySet name="JMS FIX Input">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">fixin.queue</Property>
+        <Property name="fixVersion">4.2</Property>
+        <Property name="fixMessageType"></Property>
+      </PropertySet>
+      <PropertySet name="WebSphere MQ Input">
+        <Property name="QueueName"></Property>
+        <Property name="QueueManagerName"></Property>
+        <Property name="SystemName"></Property>
+        <Property name="Port"></Property>
+        <Property name="Channel"></Property>
+        <Property name="MaxBufferSize">10240</Property>
+      </PropertySet>
+      <PropertySet name="Tibco Rendezvous (external)">
+        <Property name="baseDir"></Property>
+        <Property name="configFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="JMS XML Output (deprecated)">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">xmlout.queue</Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop CSV Output">
+        <Property name="file"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop XML Output">
+        <Property name="file"></Property>
+        <Property name="xmlSchemaFilePath"></Property>
+        <Property name="globalElementLocalName"></Property>
+        <Property name="espColumnPattern"></Property>
+      </PropertySet>
+      <PropertySet name="Socket (As Client) XML Input (deprecated)">
+        <Property name="host">localhost</Property>
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="Generic DB Output">
+        <Property name="service"></Property>
+      </PropertySet>
+      <PropertySet name="Socket (As Client) CSV Input (deprecated)">
+        <Property name="host">localhost</Property>
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="Socket FIX Input">
+        <Property name="fixVersion">4.2</Property>
+        <Property name="fixMessageType"></Property>
+        <Property name="fixHost">localhost</Property>
+        <Property name="fixPort">12345</Property>
+        <Property name="reconnectInterval">10</Property>
+        <Property name="maxReconnectAttempts">0</Property>
+      </PropertySet>
+      <PropertySet name="HTTP Client XML Output Adapter">
+        <Property name="xmlSchemaFilePath"></Property>
+        <Property name="globalElementLocalName"></Property>
+        <Property name="espColumnPattern"></Property>
+      </PropertySet>
+      <PropertySet name="FTP Event XML Input">
+        <Property name="host"></Property>
+        <Property name="port">21</Property>
+        <Property name="loginType">normal</Property>
+        <Property name="ftpFileName"></Property>
+        <Property name="ftpFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="JMS Object Output">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">objarrayout.queue</Property>
+      </PropertySet>
+      <PropertySet name="Toolkit Output Adapter">
+        <Property name="configFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="FTP CSV Input">
+        <Property name="host"></Property>
+        <Property name="port">21</Property>
+        <Property name="loginType">normal</Property>
+        <Property name="ftpFileName"></Property>
+        <Property name="ftpFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="HTTP Client Output Adapter"/>
+      <PropertySet name="AMQP Event XML Input"/>
+      <PropertySet name="AMQP Event XML Output"/>
+      <PropertySet name="JMS XML Input (deprecated)">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">xmlin.queue</Property>
+      </PropertySet>
+      <PropertySet name="Kafka Avro Record Input">
+        <Property name="avroJsonSchemaFile"></Property>
+      </PropertySet>
+      <PropertySet name="FTP Event XML Output">
+        <Property name="host"></Property>
+        <Property name="port">21</Property>
+        <Property name="loginType">normal</Property>
+        <Property name="ftpFileName"></Property>
+        <Property name="ftpFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="Kafka CSV Output">
+        <Property name="kafkaTopicPartition"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop Event XML Input"/>
+      <PropertySet name="AMQP String Output"/>
+      <PropertySet name="Socket (As Server) CSV Output (deprecated)">
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="JMS CSV Output (deprecated)">
+        <Property name="delimiter">,</Property>
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">csvout.queue</Property>
+      </PropertySet>
+      <PropertySet name="Kafka JSON Input">
+        <Property name="jsonColsMappingList"></Property>
+      </PropertySet>
+      <PropertySet name="JMS Map Output">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">mapout.queue</Property>
+      </PropertySet>
+      <PropertySet name="Kafka CSV Input"/>
+      <PropertySet name="Socket (As Server) XML Output (deprecated)">
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="Socket (As Server) XML Input (deprecated)">
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="JMS CSV Output">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">csvout.queue</Property>
+      </PropertySet>
+      <PropertySet name="Socket CSV Output">
+        <Property name="host"></Property>
+        <Property name="port"></Property>
+      </PropertySet>
+      <PropertySet name="HTTP Adapter (server)">
+        <Property name="baseDir"></Property>
+        <Property name="configFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="Random Tuples Generator"/>
+      <PropertySet name="Socket (As Client) XML Output (deprecated)">
+        <Property name="host">localhost</Property>
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="Streaming Web Output">
+        <Property name="protocol">rest</Property>
+        <Property name="clusterAuthenticationData"></Property>
+        <Property name="swsHost">localhost</Property>
+        <Property name="destinationWorkspaceName">default</Property>
+        <Property name="destinationProjectName">project1</Property>
+        <Property name="destinationStreamName">NEWSTREAM</Property>
+      </PropertySet>
+      <PropertySet name="Socket (As Server) CSV Input (deprecated)">
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="Toolkit Input Adapter">
+        <Property name="configFilePath"></Property>
+      </PropertySet>
+      <PropertySet name="SAP RFC Output (external)">
+        <Property name="config"></Property>
+      </PropertySet>
+      <PropertySet name="Kafka Avro Record Output">
+        <Property name="kafkaTopicPartition"></Property>
+        <Property name="avroJsonSchemaFile"></Property>
+      </PropertySet>
+      <PropertySet name="Socket JSON Output">
+        <Property name="jsonColsMappingList"></Property>
+        <Property name="host"></Property>
+        <Property name="port"></Property>
+      </PropertySet>
+      <PropertySet name="JDBC Input">
+        <Property name="dbType"></Property>
+      </PropertySet>
+      <PropertySet name="JMS Object Input">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">objarrayin.queue</Property>
+      </PropertySet>
+      <PropertySet name="SAP RFC Input (external)">
+        <Property name="config"></Property>
+      </PropertySet>
+      <PropertySet name="Kafka JSON Output">
+        <Property name="kafkaTopicPartition"></Property>
+        <Property name="jsonColsMappingList"></Property>
+      </PropertySet>
+      <PropertySet name="JMS MAP Input">
+        <Property name="connectionFactory">ConnectionFactory</Property>
+        <Property name="jndiContextFactory">org.apache.activemq.jndi.ActiveMQInitialContextFactory</Property>
+        <Property name="jndiURL">tcp://localhost:61616</Property>
+        <Property name="destinationType">QUEUE</Property>
+        <Property name="destinationName">mapin.queue</Property>
+      </PropertySet>
+      <PropertySet name="AMQP CSV Output"/>
+      <PropertySet name="File/Hadoop CSV Input"/>
+      <PropertySet name="Socket FIX Output">
+        <Property name="fixVersion">4.2</Property>
+        <Property name="fixMessageType"></Property>
+        <Property name="fixHost">localhost</Property>
+        <Property name="fixPort">12346</Property>
+      </PropertySet>
+      <PropertySet name="WebSphere MQ Output">
+        <Property name="QueueName"></Property>
+        <Property name="QueueManagerName"></Property>
+      </PropertySet>
+      <PropertySet name="SAP IQ Output">
+        <Property name="service"></Property>
+      </PropertySet>
+      <PropertySet name="File/Hadoop JSON Input">
+        <Property name="jsonColsMappingList"></Property>
+        <Property name="dir"></Property>
+        <Property name="file"></Property>
+      </PropertySet>
+      <PropertySet name="File FIX Input">
+        <Property name="fixVersion">4.2</Property>
+        <Property name="fixMessageType"></Property>
+        <Property name="fileName"></Property>
+      </PropertySet>
+      <PropertySet name="Socket (As Client) CSV Output (deprecated)">
+        <Property name="host">localhost</Property>
+        <Property name="port">12345</Property>
+      </PropertySet>
+      <PropertySet name="AMQP CSV Input"/>
+      <PropertySet name="File/Hadoop AVRO Input">
+        <Property name="avroJsonSchemaFile"></Property>
+      </PropertySet>
+      <PropertySet name="AMQP JSON Output">
+        <Property name="jsonColsMappingList"></Property>
+      </PropertySet>
+      <PropertySet name="Kafka String Output">
+        <Property name="kafkaTopicPartition"></Property>
+      </PropertySet>
+    </AdaptersPropertySet>
+  </Runtime>
+  <Deployment>
+    <Project ha="false">
+      <Options>
+        <Option name="time-granularity" value="5"/>
+        <Option name="debug-level" value="4"/>
+        <Option name="ws-enabled" value="true"/>
+      </Options>
+      <Instances>
+        <Instance>
+          <Failover enable="false">
+            <FailureInterval>1</FailureInterval>
+            <FailuresPerInterval>1</FailuresPerInterval>
+          </Failover>
+          <Affinities/>
+        </Instance>
+      </Instances>
+    </Project>
+  </Deployment>
+</Configuration>

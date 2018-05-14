@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.sybase.cep.studio.emf.notation:NotationModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.sybase.cep.studio.emf.notation="http://com.sybase.cep.studio.emf.notation">
+  <diagrams title="Diagram">
+    <semanticElement href="ztest.ccl#/"/>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" diagram="//@diagrams.0" xLoc="83" yLoc="41" width="-1" height="-1">
+      <semanticElement href="ztest.ccl#MACHINEDATA"/>
+      <outgoingConnectors target="//@diagrams.0/@children.1"/>
+      <outgoingConnectors target="//@diagrams.0/@children.4"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" diagram="//@diagrams.0" xLoc="53" yLoc="354" width="-1" height="-1" incomingConnectors="//@diagrams.0/@children.0/@outgoingConnectors.0 //@diagrams.0/@children.2/@outgoingConnectors.0">
+      <semanticElement href="ztest.ccl#ACTIVITY_HIST"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" diagram="//@diagrams.0" xLoc="40" yLoc="623" width="-1" height="-1">
+      <semanticElement href="ztest.ccl#HANA_Output1"/>
+      <outgoingConnectors style="4" target="//@diagrams.0/@children.1"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" style="2" diagram="//@diagrams.0" xLoc="377" yLoc="41" width="-1" height="-1">
+      <semanticElement href="ztest.ccl#MACHINE_REF"/>
+      <outgoingConnectors target="//@diagrams.0/@children.4"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" style="10" diagram="//@diagrams.0" xLoc="344" yLoc="354" width="-1" height="-1" incomingConnectors="//@diagrams.0/@children.0/@outgoingConnectors.1 //@diagrams.0/@children.3/@outgoingConnectors.0">
+      <semanticElement href="ztest.ccl#DEVICE_EVENT"/>
+      <outgoingConnectors target="//@diagrams.0/@children.5"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" style="6" diagram="//@diagrams.0" xLoc="334" yLoc="623" width="-1" height="-1" incomingConnectors="//@diagrams.0/@children.4/@outgoingConnectors.0">
+      <semanticElement href="ztest.ccl#AVG_RAM"/>
+      <outgoingConnectors target="//@diagrams.0/@children.6"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" style="22" diagram="//@diagrams.0" xLoc="351" yLoc="951" width="-1" height="-1" incomingConnectors="//@diagrams.0/@children.5/@outgoingConnectors.0 //@diagrams.0/@children.7/@outgoingConnectors.0">
+      <semanticElement href="ztest.ccl#ALARM_RAM"/>
+    </children>
+    <children xsi:type="com.sybase.cep.studio.emf.notation:Node" style="2" diagram="//@diagrams.0" xLoc="344" yLoc="1292" width="-1" height="-1">
+      <semanticElement href="ztest.ccl#SMSALARM"/>
+      <outgoingConnectors style="4" target="//@diagrams.0/@children.6"/>
+    </children>
+  </diagrams>
+  <semanticElement href="ztest.ccl#/"/>
+</com.sybase.cep.studio.emf.notation:NotationModel>

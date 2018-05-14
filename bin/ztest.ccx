@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Platform version="5.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" compiled="true">
+
+    <Program>
+        <Section id="$~MACHINEDATA">
+            <Types>
+                <RecordType name="MACHINEDATA_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="string" key="false" name="EVENT_NAME" />
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+                    <Column datatype="string" key="false" name="EVENT_VALUE" />
+                </RecordType>
+            </Types>
+        </Section>
+        <Section id="$~ACTIVITY_HIST">
+            <Types>
+                <RecordType name="ACTIVITY_HIST_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="string" key="false" name="EVENT_NAME" />
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+                    <Column datatype="string" key="false" name="EVENT_VALUE" />
+                </RecordType>
+                <RecordType name="MACHINEDATA_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="string" key="false" name="EVENT_NAME" />
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+                    <Column datatype="string" key="false" name="EVENT_VALUE" />
+                </RecordType>
+                <IteratorType name="IterMACHINEDATA_rec" valtype="MACHINEDATA_rec" />
+                <RecordType name="$!_type_1">
+                    <Column datatype="string" key="false" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="string" key="false" name="EVENT_NAME"/>
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION"/>
+                    <Column datatype="string" key="false" name="EVENT_VALUE"/>
+                </RecordType>
+            </Types>
+            <Registers>
+                <ConstRegister name="$!_const_0" type="integer"/>
+                <ConstRegister name="$!_const_1" type="string" value="DOOR"/>
+            </Registers>
+            <LegacyRegisters>
+                <LegacyRegister name="MACHINEDATA_stream" type="#ProcNode#" value="MACHINEDATA" />
+                <LegacyRegister name="MACHINEDATA" type="MACHINEDATA_rec" />
+                <LegacyRegister name="MACHINEDATA_iter" type="IterMACHINEDATA_rec" />
+                <LegacyRegister name="MACHINEDATA_old" type="MACHINEDATA_rec" />
+            </LegacyRegisters>
+            <Opcodes>
+                <FuncLabel name="$~ACTIVITY_HIST_run"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="2"/>
+                    <Opcode op="APPLY" arg1="STRING_EQ" arg2="2"/>
+                    <Opcode op="PAUSE" />
+                    <Opcode op="END" />
+            </Opcodes>
+        </Section>
+        <Section id="$~DEVICE_EVENT">
+            <Types>
+                <RecordType name="DEVICE_EVENT_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="string" key="false" name="EVENT_NAME" />
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+                    <Column datatype="string" key="false" name="EVENT_VALUE" />
+                    <Column datatype="string" key="false" name="MACHINETYPE" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP" />
+                    <Column datatype="string" key="false" name="LOCATION" />
+                    <Column datatype="string" key="false" name="TEMP_UNIT" />
+                </RecordType>
+                <RecordType name="MACHINEDATA_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="string" key="false" name="EVENT_NAME" />
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+                    <Column datatype="string" key="false" name="EVENT_VALUE" />
+                </RecordType>
+                <RecordType name="MACHINE_REF_rec">
+                    <Column datatype="string" key="true" name="MACHINEID" />
+                    <Column datatype="string" key="false" name="MACHINETYPE" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP" />
+                    <Column datatype="string" key="false" name="LOCATION" />
+                    <Column datatype="string" key="false" name="TEMP_UNIT" />
+                </RecordType>
+                <IteratorType name="IterMACHINEDATA_rec" valtype="MACHINEDATA_rec" />
+                <IteratorType name="IterMACHINE_REF_rec" valtype="MACHINE_REF_rec" />
+                <IteratorType name="IterDEVICE_EVENT_rec" valtype="DEVICE_EVENT_rec" />
+                <RecordType name="$!_type_0">
+                    <Column datatype="string" key="false" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="string" key="false" name="EVENT_NAME"/>
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION"/>
+                    <Column datatype="string" key="false" name="EVENT_VALUE"/>
+                    <Column datatype="string" key="false" name="MACHINETYPE"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP"/>
+                    <Column datatype="string" key="false" name="LOCATION"/>
+                    <Column datatype="string" key="false" name="TEMP_UNIT"/>
+                </RecordType>
+                <RecordType name="$!_type_1">
+                    <Column datatype="string" key="false" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="string" key="false" name="EVENT_NAME"/>
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION"/>
+                    <Column datatype="string" key="false" name="EVENT_VALUE"/>
+                </RecordType>
+                <RecordType name="$!_type_2">
+                    <Column datatype="string" key="true" name="MACHINEID"/>
+                    <Column datatype="string" key="false" name="MACHINETYPE"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP"/>
+                    <Column datatype="string" key="false" name="LOCATION"/>
+                    <Column datatype="string" key="false" name="TEMP_UNIT"/>
+                </RecordType>
+                <RecordType name="$!_type_3">
+                    <Column datatype="string" key="false" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="string" key="false" name="EVENT_NAME"/>
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION"/>
+                    <Column datatype="string" key="false" name="EVENT_VALUE"/>
+                    <Column datatype="string" key="false" name="MACHINETYPE"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP"/>
+                    <Column datatype="string" key="false" name="LOCATION"/>
+                    <Column datatype="string" key="false" name="TEMP_UNIT"/>
+                </RecordType>
+            </Types>
+            <Registers>
+                <ConstRegister name="$!_const_0" type="integer"/>
+                <ConstRegister name="$!_const_1" type="integer" value="0"/>
+                <ConstRegister name="$!_const_2" type="integer" value="3"/>
+                <ConstRegister name="$!_const_3" type="integer" value="13"/>
+                <ConstRegister name="$!_const_4" type="integer" value="7"/>
+                <ConstRegister name="$!_const_5" type="integer" value="0"/>
+                <ConstRegister name="$!_const_6" type="integer" value="0"/>
+                <ConstRegister name="$!_const_7" type="integer" value="0"/>
+            </Registers>
+            <LegacyRegisters>
+                <LegacyRegister name="MACHINEDATA_stream" type="#ProcNode#" value="MACHINEDATA" />
+                <LegacyRegister name="MACHINEDATA" type="MACHINEDATA_rec" />
+                <LegacyRegister name="MACHINEDATA_iter" type="IterMACHINEDATA_rec" />
+                <LegacyRegister name="MACHINEDATA_old" type="MACHINEDATA_rec" />
+                <LegacyRegister name="MACHINE_REF_stream" type="#ProcNode#" value="MACHINE_REF" />
+                <LegacyRegister name="MACHINE_REF" type="MACHINE_REF_rec" />
+                <LegacyRegister name="MACHINE_REF_iter" type="IterMACHINE_REF_rec" />
+                <LegacyRegister name="MACHINE_REF_old" type="MACHINE_REF_rec" />
+                <LegacyRegister name="DEVICE_EVENT_stream" type="#ProcNode#" value="DEVICE_EVENT" />
+                <LegacyRegister name="DEVICE_EVENT" type="DEVICE_EVENT_rec" />
+                <LegacyRegister name="DEVICE_EVENT_iter" type="IterDEVICE_EVENT_rec" />
+                <LegacyRegister name="DEVICE_EVENT_old" type="DEVICE_EVENT_rec" />
+            </LegacyRegisters>
+            <Opcodes>
+                <FuncLabel name="$~DEVICE_EVENT_OnInput_MACHINEDATA"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF_stream"/>
+                    <Opcode op="APPLY" arg1="RECORD_COLLECTION_GET_ITER" arg2="1"/>
+                    <Opcode op="SETREGISTER" arg1="MACHINE_REF_iter"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF_iter"/>
+                    <Opcode op="APPLY" arg1="ITERATOR_SETSEARCH" arg2="3"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF_iter"/>
+                    <Opcode op="APPLY" arg1="ITERATOR_NEXT" arg2="1"/>
+                    <Opcode op="SETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="APPLY" arg1="ANY_ISNULL" arg2="1"/>
+                    <Opcode op="JZN" arg1="1" jmp="$#_label_1"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_2"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="APPLY" arg1="RECORD_GETOPCODE" arg2="1"/>
+                    <Opcode op="APPLY" arg1="INT32_EQ" arg2="2"/>
+                    <Opcode op="JZN" arg1="1" jmp="$#_label_2"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_3"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="string" arg1="5"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="3"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="2"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="string" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="3"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="2"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="10" arg3="0"/>
+                    <Opcode op="APPLY" arg1="RECORD_SETOPCODE" arg2="2"/>
+                    <Opcode op="POPN" arg1="1"/>
+                <Label name="$#_label_2"/>
+                    <Opcode op="JMP"  jmp="$#_label_3"/>
+                <Label name="$#_label_1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="APPLY" arg1="ANY_ISNULL" arg2="1"/>
+                    <Opcode op="NOT" />
+                    <Opcode op="JZN" arg1="1" jmp="$#_label_3"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_4"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="string" arg1="5"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="3"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="2"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="GETFIELD" type="string" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="3"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="2"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINEDATA"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="10" arg3="0"/>
+                    <Opcode op="APPLY" arg1="RECORD_SETOPCODE" arg2="2"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF_iter"/>
+                    <Opcode op="APPLY" arg1="ITERATOR_NEXT" arg2="1"/>
+                    <Opcode op="SETREGISTER" arg1="MACHINE_REF"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="JMP"  jmp="$#_label_1"/>
+                <Label name="$#_label_3"/>
+                    <Opcode op="GETREGISTER" arg1="MACHINE_REF_iter"/>
+                    <Opcode op="APPLY" arg1="ITERATOR_DELETE" arg2="1"/>
+                    <Opcode op="SETREGISTER" arg1="MACHINE_REF_iter"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_5"/>
+                    <Opcode op="RETURN" />
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~DEVICE_EVENT_OnInput_MACHINE_REF"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_6"/>
+                    <Opcode op="RETURN" />
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~init_function" init="true"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_7"/>
+                    <Opcode op="RETURN" />
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                    <Opcode op="RETURN" />
+                    <Opcode op="END" />
+            </Opcodes>
+        </Section>
+        <Section id="$~AVG_RAM">
+            <Types>
+                <RecordType name="AVG_RAM_rec">
+                    <Column datatype="string" key="true" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM" />
+                </RecordType>
+                <RecordType name="DEVICE_EVENT_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="string" key="false" name="EVENT_NAME" />
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+                    <Column datatype="string" key="false" name="EVENT_VALUE" />
+                    <Column datatype="string" key="false" name="MACHINETYPE" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP" />
+                    <Column datatype="string" key="false" name="LOCATION" />
+                    <Column datatype="string" key="false" name="TEMP_UNIT" />
+                </RecordType>
+                <RecordType name="$~AVG_RAM_groupType">
+                    <Column datatype="string" key="true" name="_f0
+"/>
+                </RecordType>
+                <IteratorType name="IterDEVICE_EVENT_rec" valtype="DEVICE_EVENT_rec" />
+                <RecordType name="$!_type_0">
+                    <Column datatype="string" key="true" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM"/>
+                </RecordType>
+                <RecordType name="$!_type_1">
+                    <Column datatype="string" key="false" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="string" key="false" name="EVENT_NAME"/>
+                    <Column datatype="string" key="false" name="EVENT_DESCRIPTION"/>
+                    <Column datatype="string" key="false" name="EVENT_VALUE"/>
+                    <Column datatype="string" key="false" name="MACHINETYPE"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP"/>
+                    <Column datatype="string" key="false" name="LOCATION"/>
+                    <Column datatype="string" key="false" name="TEMP_UNIT"/>
+                </RecordType>
+                <RecordType name="$!_type_2">
+                    <Column datatype="string" key="true" name="_f0
+"/>
+                </RecordType>
+            </Types>
+            <Registers>
+                <ConstRegister name="$!_const_0" type="integer"/>
+                <ConstRegister name="$!_const_1" type="integer" value="2"/>
+                <ConstRegister name="$!_const_2" type="integer" value="4"/>
+                <ConstRegister name="$!_const_3" type="integer" value="2"/>
+                <ConstRegister name="$!_const_4" type="integer" value="4"/>
+                <ConstRegister name="$!_const_5" type="integer" value="2"/>
+                <ConstRegister name="$!_const_6" type="integer" value="4"/>
+                <ConstRegister name="$!_const_7" type="integer" value="2"/>
+                <ConstRegister name="$!_const_8" type="integer" value="4"/>
+                <ConstRegister name="$!_const_9" type="string" value="TEMP"/>
+            </Registers>
+            <LegacyRegisters>
+                <LegacyRegister name="DEVICE_EVENT_stream" type="#ProcNode#" value="DEVICE_EVENT" />
+                <LegacyRegister name="DEVICE_EVENT" type="DEVICE_EVENT_rec" />
+                <LegacyRegister name="DEVICE_EVENT_iter" type="IterDEVICE_EVENT_rec" />
+                <LegacyRegister name="DEVICE_EVENT_old" type="DEVICE_EVENT_rec" />
+            </LegacyRegisters>
+            <Opcodes>
+                <FuncLabel name="$~AVG_RAM_normalLabel"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="7"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="6"/>
+                    <Opcode op="BEGINPARTIAL" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_1"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_2"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="APPLY" arg1="STRING_TODECIMAL" arg2="3"/>
+                    <Opcode op="APPLYPARTIAL" arg1="DECIMAL_AVG_ADD" arg2="0" arg3="DEVICE_EVENT"/>
+                    <Opcode op="RESETRP_LAST" arg1="DEVICE_EVENT"/>
+                    <Opcode op="JAGGR"  jmp="$#_label_1"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="JMP"  jmp="$#_label_2"/>
+                <Label name="$#_label_1"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                <Label name="$#_label_2"/>
+                    <Opcode op="RESTORE" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="5" arg3="0"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~AVG_RAM_additiveLabel"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="7"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="6"/>
+                    <Opcode op="RESETRP" arg1="DEVICE_EVENT"/>
+                <Label name="$#_label_4"/>
+                    <Opcode op="JAGGR"  jmp="$#_label_3"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_3"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_4"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="APPLY" arg1="STRING_TODECIMAL" arg2="3"/>
+                    <Opcode op="INCRP" arg1="DEVICE_EVENT"/>
+                    <Opcode op="JMP"  jmp="$#_label_4"/>
+                <Label name="$#_label_3"/>
+                    <Opcode op="APPLYAGGR" arg1="DECIMAL_AVG_OP" arg2="0" arg3="DEVICE_EVENT"/>
+                    <Opcode op="RESETRP_LAST" arg1="DEVICE_EVENT"/>
+                    <Opcode op="JAGGR"  jmp="$#_label_5"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="JMP"  jmp="$#_label_6"/>
+                <Label name="$#_label_5"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                <Label name="$#_label_6"/>
+                    <Opcode op="RESTORE" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="5" arg3="0"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~AVG_RAM_insertLabel"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="7"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="6"/>
+                    <Opcode op="BEGINPARTIAL" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_5"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_6"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="APPLY" arg1="STRING_TODECIMAL" arg2="3"/>
+                    <Opcode op="APPLYPARTIAL" arg1="DECIMAL_AVG_ADD" arg2="0" arg3="DEVICE_EVENT"/>
+                    <Opcode op="RESETRP_LAST" arg1="DEVICE_EVENT"/>
+                    <Opcode op="JAGGR"  jmp="$#_label_7"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="JMP"  jmp="$#_label_8"/>
+                <Label name="$#_label_7"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                <Label name="$#_label_8"/>
+                    <Opcode op="RESTORE" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="5" arg3="0"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~AVG_RAM_whenLabel"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="7"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="6"/>
+                    <Opcode op="RESETRP" arg1="DEVICE_EVENT"/>
+                <Label name="$#_label_10"/>
+                    <Opcode op="JAGGR"  jmp="$#_label_9"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_7"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_8"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="4"/>
+                    <Opcode op="APPLY" arg1="STRING_TODECIMAL" arg2="3"/>
+                    <Opcode op="INCRP" arg1="DEVICE_EVENT"/>
+                    <Opcode op="JMP"  jmp="$#_label_10"/>
+                <Label name="$#_label_9"/>
+                    <Opcode op="APPLYAGGR" arg1="DECIMAL_AVG_OP" arg2="0" arg3="DEVICE_EVENT"/>
+                    <Opcode op="RESETRP_LAST" arg1="DEVICE_EVENT"/>
+                    <Opcode op="JAGGR"  jmp="$#_label_11"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="JMP"  jmp="$#_label_12"/>
+                <Label name="$#_label_11"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_0"/>
+                <Label name="$#_label_12"/>
+                    <Opcode op="RESTORE" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="5" arg3="0"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~AVG_RAM_groupByLabel"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_2" arg2="1" arg3="0"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="RETURN" />
+                <FuncLabel name="$~AVG_RAM_groupFilterLabel"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_9"/>
+                    <Opcode op="GETREGISTER" arg1="DEVICE_EVENT"/>
+                    <Opcode op="GETFIELD" type="string" arg1="2"/>
+                    <Opcode op="APPLY" arg1="STRING_EQ" arg2="2"/>
+                    <Opcode op="RETURN" />
+                    <Opcode op="END" />
+            </Opcodes>
+        </Section>
+        <Section id="$~AVG_RAMFilter_0">
+            <Types>
+                <RecordType name="AVG_RAMFilter_0_rec">
+                    <Column datatype="string" key="true" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM" />
+                </RecordType>
+                <RecordType name="AVG_RAM_rec">
+                    <Column datatype="string" key="true" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM" />
+                </RecordType>
+                <IteratorType name="IterAVG_RAM_rec" valtype="AVG_RAM_rec" />
+                <RecordType name="$!_type_1">
+                    <Column datatype="string" key="true" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM"/>
+                </RecordType>
+            </Types>
+            <Registers>
+                <ConstRegister name="$!_const_0" type="integer"/>
+            </Registers>
+            <LegacyRegisters>
+                <LegacyRegister name="AVG_RAM_stream" type="#ProcNode#" value="AVG_RAM" />
+                <LegacyRegister name="AVG_RAM" type="AVG_RAM_rec" />
+                <LegacyRegister name="AVG_RAM_iter" type="IterAVG_RAM_rec" />
+                <LegacyRegister name="AVG_RAM_old" type="AVG_RAM_rec" />
+            </LegacyRegisters>
+            <Opcodes>
+                <FuncLabel name="$~AVG_RAMFilter_0_run"/>
+                    <Opcode op="GETREGISTER" arg1="AVG_RAM"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="3"/>
+                    <Opcode op="GETREGISTER" arg1="AVG_RAM"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="2"/>
+                    <Opcode op="APPLY" arg1="DECIMAL_GT" arg2="2"/>
+                    <Opcode op="PAUSE" />
+                    <Opcode op="END" />
+            </Opcodes>
+        </Section>
+        <Section id="$~ALARM_RAM">
+            <Types>
+                <RecordType name="ALARM_RAM_rec">
+                    <Column datatype="string" key="false" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+                    <Column datatype="string" key="false" name="ALARM_TYPE" />
+                    <Column datatype="string" key="false" name="ALARM_DESC" />
+                </RecordType>
+                <RecordType name="AVG_RAMFilter_0_rec">
+                    <Column datatype="string" key="true" name="MACHINEID" />
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM" />
+                </RecordType>
+                <IteratorType name="IterAVG_RAMFilter_0_rec" valtype="AVG_RAMFilter_0_rec" />
+                <RecordType name="$!_type_0">
+                    <Column datatype="string" key="false" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM"/>
+                    <Column datatype="string" key="false" name="ALARM_TYPE"/>
+                    <Column datatype="string" key="false" name="ALARM_DESC"/>
+                </RecordType>
+                <RecordType name="$!_type_1">
+                    <Column datatype="string" key="true" name="MACHINEID"/>
+                    <Column datatype="timestamp" key="false" name="EVENT_TIME"/>
+                    <Column datatype="decimal(4,2)" key="false" name="AVG_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MAX_RAM"/>
+                    <Column datatype="decimal(4,2)" key="false" name="MIN_RAM"/>
+                </RecordType>
+            </Types>
+            <Registers>
+                <ConstRegister name="$!_const_0" type="integer"/>
+                <ConstRegister name="$!_const_1" type="string" value="Need more RAM"/>
+                <ConstRegister name="$!_const_2" type="string" value="RAM Usage"/>
+            </Registers>
+            <LegacyRegisters>
+                <LegacyRegister name="AVG_RAMFilter_0_stream" type="#ProcNode#" value="AVG_RAMFilter_0" />
+                <LegacyRegister name="AVG_RAMFilter_0" type="AVG_RAMFilter_0_rec" />
+                <LegacyRegister name="AVG_RAMFilter_0_iter" type="IterAVG_RAMFilter_0_rec" />
+                <LegacyRegister name="AVG_RAMFilter_0_old" type="AVG_RAMFilter_0_rec" />
+            </LegacyRegisters>
+            <Opcodes>
+                <FuncLabel name="$~ALARM_RAM_run"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_1"/>
+                    <Opcode op="GETCONSTANT" arg1="$!_const_2"/>
+                    <Opcode op="GETREGISTER" arg1="AVG_RAMFilter_0"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="3"/>
+                    <Opcode op="GETREGISTER" arg1="AVG_RAMFilter_0"/>
+                    <Opcode op="GETFIELD" type="decimal(4,2)" arg1="2"/>
+                    <Opcode op="GETREGISTER" arg1="AVG_RAMFilter_0"/>
+                    <Opcode op="GETFIELD" type="timestamp" arg1="1"/>
+                    <Opcode op="GETREGISTER" arg1="AVG_RAMFilter_0"/>
+                    <Opcode op="GETFIELD" type="string" arg1="0"/>
+                    <Opcode op="MAKERECORD" arg1="$!_type_0" arg2="6" arg3="0"/>
+                    <Opcode op="POPN" arg1="1"/>
+                    <Opcode op="END" />
+            </Opcodes>
+        </Section>
+    </Program>
+
+    <CompiledSourceStream id="MACHINEDATA" section="$~MACHINEDATA" visibility="input" >
+        <Column datatype="string" key="false" name="MACHINEID" />
+        <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+        <Column datatype="string" key="false" name="EVENT_NAME" />
+        <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+        <Column datatype="string" key="false" name="EVENT_VALUE" />
+
+        <StatelessInsert name="MACHINEDATA" recordType="MACHINEDATA_rec" result="true" />
+        <PassLogic name="l_MACHINEDATA" priority="0" itype="classic" from="src_MACHINEDATA" to="MACHINEDATA" />
+        <SourceNode name="src_MACHINEDATA" recordType="MACHINEDATA_rec" />
+    </CompiledSourceStream>
+
+
+    <Reference id="MACHINE_REF" >
+        <Columns>
+            <Column datatype="string" key="true" name="MACHINEID" />
+            <Column datatype="string" key="false" name="MACHINETYPE" />
+            <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP" />
+            <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP" />
+            <Column datatype="string" key="false" name="LOCATION" />
+            <Column datatype="string" key="false" name="TEMP_UNIT" />
+        </Columns>
+        <Properties>
+            <Property name="service" value="hanadb" />
+            <Property name="source" value="MACHINE_REF" />
+            <Property name="sourceschema" value="STREAMING" />
+            <Property name="service" value="hanadb" />
+        </Properties>
+    </Reference>
+    <CompiledFilterStream id="ACTIVITY_HIST" istream="MACHINEDATA" section="$~ACTIVITY_HIST" visibility="output" >
+
+            <OutConnection name="HANA_Output1" location="HANA_Output1_Location" >
+                <ConnectionParam name="service" value="hanadb" />
+                <ConnectionParam name="sourceschema" value="STREAMING" />
+                <ConnectionParam name="table" value="ACTIVITY_HIST" />
+            </OutConnection>
+
+        <Column datatype="string" key="false" name="MACHINEID" />
+        <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+        <Column datatype="string" key="false" name="EVENT_NAME" />
+        <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+        <Column datatype="string" key="false" name="EVENT_VALUE" />
+
+        <StatelessInsert name="ACTIVITY_HIST" recordType="ACTIVITY_HIST_rec" result="true" />
+        <FilterLegacyLogic name="l_ACTIVITY_HIST" priority="0" itype="classic" from="MACHINEDATA" to="ACTIVITY_HIST" label="$~ACTIVITY_HIST_run" />
+    </CompiledFilterStream>
+
+
+    <CompiledStream id="DEVICE_EVENT" istream="MACHINEDATA" iref="MACHINE_REF" section="$~DEVICE_EVENT" visibility="output" >
+        <Column datatype="string" key="false" name="MACHINEID" />
+        <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+        <Column datatype="string" key="false" name="EVENT_NAME" />
+        <Column datatype="string" key="false" name="EVENT_DESCRIPTION" />
+        <Column datatype="string" key="false" name="EVENT_VALUE" />
+        <Column datatype="string" key="false" name="MACHINETYPE" />
+        <Column datatype="decimal(4,2)" key="false" name="MAX_TEMP" />
+        <Column datatype="decimal(4,2)" key="false" name="MIN_TEMP" />
+        <Column datatype="string" key="false" name="LOCATION" />
+        <Column datatype="string" key="false" name="TEMP_UNIT" />
+
+        <StatelessInsert name="DEVICE_EVENT" recordType="DEVICE_EVENT_rec" result="true" />
+        <VmLogic name="l_DEVICE_EVENT_MACHINEDATA" priority="0" itype="flex_classic" from="MACHINEDATA" to="DEVICE_EVENT" label="$~DEVICE_EVENT_OnInput_MACHINEDATA" register="MACHINEDATA" registerOld="MACHINEDATA_old" />
+        <VmLogic name="l_DEVICE_EVENT_MACHINE_REF" priority="1" itype="flex_classic" from="MACHINE_REF" to="DEVICE_EVENT" label="$~DEVICE_EVENT_OnInput_MACHINE_REF" register="MACHINE_REF" registerOld="MACHINE_REF_old" />
+
+    </CompiledStream>
+
+
+	<!-- ************************************************************************************* -->
+	<!-- defaultStore Store Definition -->
+
+
+	<Store id="_ESP_Internal_Store" kind="memory" />
+	<Store id="defaultStore" kind="memory" />
+
+
+    <CompiledAggregateStream id="AVG_RAM" istream="DEVICE_EVENT" section="$~AVG_RAM" store="defaultStore" visibility="output" >
+        <Column datatype="string" key="true" name="MACHINEID" />
+        <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+        <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+        <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+        <Column datatype="decimal(4,2)" key="false" name="MIN_RAM" />
+
+        <Window name="AVG_RAM" recordType="AVG_RAM_rec" result="true" collect="true" coalesce="true" />
+        <PassLogic name="l_DEVICE_EVENT_unnamed_DEVICE_EVENT" itype="classic" from="DEVICE_EVENT" to="unnamed_DEVICE_EVENT" priority="0" />
+        <Window name="unnamed_DEVICE_EVENT" recordType="DEVICE_EVENT_rec" result="false" collect="true" coalesce="true" timeLimit="30000000" />
+        <AggregateLegacyLogic name="l_AVG_RAM" priority="0" itype="classic" from="unnamed_DEVICE_EVENT" to="AVG_RAM" label="$~AVG_RAM_normalLabel" numPartials="1" normalLabel="$~AVG_RAM_normalLabel" additiveLabel="$~AVG_RAM_additiveLabel" insertLabel="$~AVG_RAM_insertLabel" whenLabel="$~AVG_RAM_whenLabel" groupByLabel="$~AVG_RAM_groupByLabel" additiveAggregation="false" groupType="$~AVG_RAM_groupType" groupFilterLabel="$~AVG_RAM_groupFilterLabel" />
+    </CompiledAggregateStream>
+
+
+    <CompiledFilterStream id="AVG_RAMFilter_0" istream="AVG_RAM" section="$~AVG_RAMFilter_0" store="defaultStore" visibility="local" target="ALARM_RAM" >
+        <Column datatype="string" key="true" name="MACHINEID" />
+        <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+        <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+        <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+        <Column datatype="decimal(4,2)" key="false" name="MIN_RAM" />
+
+        <Window name="AVG_RAMFilter_0" recordType="AVG_RAMFilter_0_rec" result="true" collect="true" coalesce="true" />
+        <FilterLegacyLogic name="l_AVG_RAMFilter_0" priority="0" itype="classic" from="AVG_RAM" to="AVG_RAMFilter_0" label="$~AVG_RAMFilter_0_run" />
+    </CompiledFilterStream>
+
+
+    <CompiledStream id="ALARM_RAM" istream="AVG_RAMFilter_0" section="$~ALARM_RAM" visibility="output" >
+
+            <OutConnection name="SMSALARM" location="SMSALARM_Location" >
+                <ConnectionParam name="requesturl" value="http://codingshivaay.in/api/chat/AlertRAM.php" />
+                <ConnectionParam name="jsoncolsmappinglist" value="ALARM_RAM.MACHINEID,ALARM_RAM.AVG_RAM" />
+            </OutConnection>
+
+        <Column datatype="string" key="false" name="MACHINEID" />
+        <Column datatype="timestamp" key="false" name="EVENT_TIME" />
+        <Column datatype="decimal(4,2)" key="false" name="AVG_RAM" />
+        <Column datatype="decimal(4,2)" key="false" name="MAX_RAM" />
+        <Column datatype="string" key="false" name="ALARM_TYPE" />
+        <Column datatype="string" key="false" name="ALARM_DESC" />
+
+        <StatelessInsert name="ALARM_RAM" recordType="ALARM_RAM_rec" result="true" />
+        <VmLogic name="l_ALARM_RAM" priority="0" itype="classic" from="AVG_RAMFilter_0" to="ALARM_RAM" label="$~ALARM_RAM_run" register="AVG_RAMFilter_0" registerOld="AVG_RAMFilter_0_old" />
+    </CompiledStream>
+
+
+	<!-- ************************************************************************************* -->
+	<!-- HANA_Output1_Location Data Location Definition -->
+
+	<DataLocation id="HANA_Output1_Location" type="hana_out" />
+
+
+	<!-- ************************************************************************************* -->
+	<!-- SMSALARM_Location Data Location Definition -->
+
+	<DataLocation id="SMSALARM_Location" type="toolkit_http_json_output" />
+
+
+</Platform>
